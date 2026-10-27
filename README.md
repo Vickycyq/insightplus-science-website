@@ -19,3 +19,11 @@
 - 首页的所有 **Get a Quote** 按钮都会打开 `contacts.html`。
 
 图片目前使用外部图片地址；上线时可将图片放入本地资源目录，再把 `script.js` 或 `contacts.js` 中的地址改为本地路径。员工和社交资料当前是演示内容，正式发布前请替换为真实信息。
+
+## Cloudflare Pages 部署
+
+- Build command: `sh build.sh`
+- Build output directory: `dist`
+- Root directory: 留空（项目根目录）
+
+`build.sh` 会将网站页面、脚本、样式、站点地图、robots 文件和 `assets` 复制到 `dist`。不要把仓库根目录设为输出目录，以免把 Git 历史文件一并作为网站资源上传。
