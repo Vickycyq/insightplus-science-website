@@ -27,3 +27,5 @@
 - Root directory: 留空（项目根目录）
 
 `build.sh` 会将网站页面、脚本、样式、站点地图、robots 文件和 `assets` 复制到 `dist`。不要把仓库根目录设为输出目录，以免把 Git 历史文件一并作为网站资源上传。
+
+如果通过 Cloudflare Workers Builds 将仓库根目录直接作为静态资源目录，根目录的 `.assetsignore` 会排除 `.git` 和 `dist`，避免上传 Git 历史文件。
