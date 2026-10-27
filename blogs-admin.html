@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f2f6f9" />
+  <title>Manage Blogs | INSIGHTPLUS SCIENCE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="blogs-admin.css" />
+</head>
+<body class="admin-body">
+  <header class="admin-header"><a class="brand" href="index.html"><img src="assets/company-logo.png" alt="INSIGHTPLUS SCIENCE" /></a><div class="admin-header-title"><span class="admin-dot"></span>Blog Manager</div><a class="admin-back" href="blogs.html">View Blogs <span>↗</span></a></header>
+  <main class="admin-layout">
+    <aside class="admin-sidebar"><div class="sidebar-heading"><div><p class="eyebrow">CONTENT</p><h1>Your Articles</h1></div><button class="new-post-button" id="new-post">＋ New</button></div><div class="post-filters"><button class="filter-button active" data-filter="all">All <span id="all-total">0</span></button><button class="filter-button" data-filter="News">News <span id="news-total">0</span></button><button class="filter-button" data-filter="Knowledge">Knowledge <span id="knowledge-total">0</span></button></div><div class="saved-post-list" id="saved-post-list"></div><div class="storage-note"><span>ⓘ</span><p>Articles are saved in this browser. For a live shared website, connect the page to a publishing system.</p></div></aside>
+    <section class="editor-area">
+      <div class="editor-topline"><div><p class="eyebrow">BLOG EDITOR</p><h2 id="editor-heading">Create an article</h2></div><span id="save-status" class="save-status">Unsaved changes</span></div>
+      <div class="editor-workspace">
+        <div class="editor-form-panel">
+          <form id="blog-form">
+            <input type="hidden" id="post-id" />
+            <label class="field-label">Article title<input id="post-title" type="text" placeholder="Write a clear, specific title" required /></label>
+            <div class="field-row"><label class="field-label">Category<select id="post-category"><option value="News">News</option><option value="Knowledge">Knowledge</option></select></label><label class="field-label">Publish date<input id="post-date" type="date" /></label></div>
+            <div class="field-row"><label class="field-label">Author<input id="post-author" type="text" placeholder="INSIGHTPLUS SCIENCE Team" /></label><label class="field-label">Cover image URL<input id="post-cover" type="url" placeholder="https://…" /></label></div>
+            <label class="field-label">Short summary<textarea id="post-excerpt" rows="3" placeholder="A short introduction shown on the blog list" required></textarea></label>
+            <div class="field-label article-label">Article content</div>
+            <div class="rich-toolbar" role="toolbar" aria-label="Text formatting"><button type="button" data-command="formatBlock" data-value="p" title="Paragraph">¶</button><button type="button" data-command="formatBlock" data-value="h2" title="Heading">H2</button><span></span><button type="button" data-command="bold" title="Bold"><b>B</b></button><button type="button" data-command="italic" title="Italic"><i>I</i></button><span></span><button type="button" data-command="insertUnorderedList" title="Bulleted list">• List</button><button type="button" data-command="insertOrderedList" title="Numbered list">1. List</button><span></span><button type="button" id="add-link" title="Add link">↗ Link</button></div>
+            <div id="post-content" class="rich-editor" contenteditable="true" aria-label="Article body" data-placeholder="Start writing your article…"><p></p></div>
+            <div class="editor-actions"><label class="publish-toggle"><input type="checkbox" id="post-published" checked /><span class="toggle-track"></span><span>Published</span></label><div class="action-buttons"><button type="button" class="delete-button" id="delete-post" hidden>Delete</button><button type="button" class="draft-button" id="save-draft">Save Draft</button><button type="submit" class="publish-button">Save Article</button></div></div>
+          </form>
+        </div>
+        <aside class="preview-panel"><div class="preview-heading"><span class="preview-indicator"></span> LIVE PREVIEW</div><div class="preview-card"><div class="preview-cover" id="preview-cover"><span id="preview-category">News</span></div><div class="preview-copy"><div class="preview-meta"><span id="preview-date">Date to be announced</span><span>·</span><span id="preview-author">INSIGHTPLUS SCIENCE Team</span></div><h3 id="preview-title">Your article title</h3><p id="preview-excerpt">Your short summary will appear here as an introduction to the article.</p><div class="preview-read">Read article <span>→</span></div></div></div><div class="preview-tip"><b>Writing tip</b><p>Use a short, clear title and a concise summary. A landscape cover image works best.</p></div></aside>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="blogs-admin.js"></script>
+</body>
+</html>
