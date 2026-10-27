@@ -84,7 +84,10 @@ function formatDate(value) {
 
 function articleCard(post) {
   const cover = blogCover(post);
-  return `<article class="blog-card"><div class="blog-cover" style="background-image:url(&quot;${escapeHTML(cover)}&quot;)"><span class="blog-cover-label">${escapeHTML(post.category)}</span></div><div class="blog-card-body"><div class="blog-meta"><span>${formatDate(post.date)}</span><span>·</span><span>${escapeHTML(post.author || 'INSIGHTPLUS SCIENCE Team')}</span></div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.excerpt)}</p><button class="read-article" data-open-article="${escapeHTML(post.id)}">Read article <span>→</span></button></div></article>`;
+  const readAction = post.id === 'pipette-tips-buyers-guide'
+    ? '<a class="read-article" href="how-to-choose-the-right-pipette-tips.html">Read article <span>→</span></a>'
+    : `<button class="read-article" data-open-article="${escapeHTML(post.id)}">Read article <span>→</span></button>`;
+  return `<article class="blog-card"><div class="blog-cover" style="background-image:url(&quot;${escapeHTML(cover)}&quot;)"><span class="blog-cover-label">${escapeHTML(post.category)}</span></div><div class="blog-card-body"><div class="blog-meta"><span>${formatDate(post.date)}</span><span>·</span><span>${escapeHTML(post.author || 'INSIGHTPLUS SCIENCE Team')}</span></div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.excerpt)}</p>${readAction}</div></article>`;
 }
 
 function renderBlogs() {
