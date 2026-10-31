@@ -23,8 +23,16 @@ const media = {
   processQuality: 'assets/process-05-quality.jpg',
   processDelivery: 'assets/process-06-delivery.jpg'
 };
-// Homepage category cards use category records only; individual products belong to the catalog page.
-const products = productCatalog.filter(product => product.type === 'category');
+// Homepage category cards are curated separately from the product catalog.
+const products = [
+  {name:'General Plasticware',shortDescription:'Everyday essentials including centrifuge tubes, carboys, bottles, funnels, containers, and bulk laboratory plasticware.',image:'assets/general-plasticware.png',href:'Products/general-plasticware.html'},
+  {name:'Glassware',shortDescription:'A broad selection of beakers, flasks, bottles, pipettes, vials, and laboratory tubes, designed for precision and durability.',image:'assets/glassware.jpg',href:'Products/glassware.html'},
+  {name:'Anatomy, Pathology & Clinical Supplies',shortDescription:'Specialized products for diagnostic, pathology, and clinical laboratory environments.',image:'assets/histology-pathology-labware.png',href:'Products/anatomy-pathology-clinical-supplies.html'},
+  {name:'Filtration Consumables',shortDescription:'Membrane filters, syringe filters, filter holders, vacuum filtration units, and accessories for sterile filtration and analytical workflows.',image:'assets/filtration-consumables.jpg',href:'Products/filtration-consumables.html'},
+  {name:'Crucibles & Metal Consumables',shortDescription:'High-temperature laboratory tools and consumables for materials testing and analytical procedures.',image:'assets/crucibles-metal-consumables.jpg',href:'Products/crucibles-metal-consumables.html'},
+  {name:'Liquid Handling Consumables',shortDescription:'Pipettes, pipette tips, bottle-top dispensers, burettes, and syringes for accurate, reproducible sample handling.',image:'assets/liquid-handling-consumables.jpg',href:'Products/liquid-handling-consumables.html'},
+  {name:'Electrochemistry Supplies',shortDescription:'Meters, probes, laboratory equipment, and consumables for measuring key chemical parameters.',image:'assets/electrochemistry-supplies.jpg',href:'Products/electrochemistry-supplies.html'}
+];
 const industries = [
   ['Research Laboratories','Accelerating Scientific Discovery',media.research,'⚗'],['Universities','Supporting Education and Innovation',media.university,'⌂'],['Pharmaceutical Laboratories','Ensuring a Safer and Healthier World',media.pharma,'◉'],['Medical Testing Laboratories','Reliable Testing for Better Care',media.medical,'▤'],['Industrial R&D Centers','Empowering Innovation and Growth',media.industrial,'▧']
 ];
@@ -43,7 +51,7 @@ const certs = [
   { mark:'CE', copy:'CE Certification' }
 ];
 const arrow = '<span class="card-arrow">↗</span>';
-document.querySelector('#product-grid').innerHTML = products.map(product=>`<a class="product-card" href="products.html"><img src="${product.image}" alt="${product.name}"/><div class="card-copy"><strong>${product.name}</strong><span>${product.shortDescription}</span></div>${arrow}</a>`).join('');
+document.querySelector('#product-grid').innerHTML = products.map(product=>`<a class="product-card" href="${product.href}"><img src="${product.image}" alt="${product.name}"/><div class="card-copy"><strong>${product.name}</strong><span>${product.shortDescription}</span></div>${arrow}</a>`).join('');
 document.querySelector('#industry-grid').innerHTML = industries.map(([title,copy,img,icon])=>`<a class="industry-card" href="#contact" style="--card-image:url('${img}')"><span class="industry-icon">${icon}</span><span class="industry-copy"><b>${title}</b><small>${copy}</small></span></a>`).join('');
 document.querySelector('#benefit-grid').innerHTML = benefits.map(([icon,title,copy])=>`<div class="benefit"><span class="benefit-icon">${icon}</span><span><b>${title}</b><small>${copy.replace('\n','<br>')}</small></span></div>`).join('');
 document.querySelector('#capability-grid').innerHTML = capabilities.map(([num,title,copy,img])=>`<a class="capability-card" href="#contact"><div class="capability-image"><img src="${img}" alt="${title}"/><b>${num}</b></div><strong>${title}</strong><small>${copy.replace('\n','<br>')}</small>${arrow}</a>`).join('');
