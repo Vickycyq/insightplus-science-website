@@ -6,21 +6,26 @@ const categoryPages = [
       ['Bags', 'Ideal for transporting and storing solids, semi-solids, and liquids.'],
       ['Carboys', 'Available in plastic or shatter-resistant glass, including opaque and low-profile options. Highly resistant to chemicals.'],
       ['Plastic Bottles', 'Impact-resistant and compatible with a wide range of substances.'],
+      ['Spreader', 'Inoculating loops and spreaders for microbial sample transfer and even distribution on culture media.'],
       ['Cell Culture Flasks', 'Available with vented, plug-seal, or phenolic resin caps for a secure closure.'],
       ['Centrifuge Tubes', 'One-piece tubes with conical bottoms or self-standing designs, easy-to-read surfaces, and smooth interiors.'],
+      ['Test Tubes', 'Plastic test tubes in multiple sizes for sample handling, culture, and routine laboratory testing.'],
       ['Tube Racks', 'Reinforced racks keep tubes supported, accessible, and organized.'],
       ['Cuvettes and Cells', 'Scratch-resistant options in quartz, plastic, polycarbonate, or glass, available in a range of sizes.'],
       ['Sealing Mats and Films', 'Quality seals and mats help protect laboratory products from contamination and minimize evaporation.'],
       ['Weighing Boats', 'Ideal for general weighing, evaporation, dispensing, and storage applications.'],
       ['Transfer Pipettes', 'Manual and automated designs support the safe transfer of liquids in a range of volumes.'],
       ['Petri Dishes', 'A wide selection of high-quality plates with translucent surfaces for high-resolution microscopic studies.'],
+      ['Filter Paper', 'Filter media for routine liquid filtration and laboratory sample preparation.'],
+      ['PCR Plates', 'PCR and qPCR plates for thermal cycling and high-throughput molecular workflows.'],
       ['Deep Well Plates', 'Designed for assays and storage, with multiple volumes and well shapes in SBS formats for automation.'],
       ['Cryovials', 'Cryogenic vials in a range of sizes and thread styles for secure storage of sensitive samples.'],
+      ['Tissue Embedding Cassettes', 'Tissue processing cassettes with labeling areas and slotted or mesh openings for histology workflows.'],
       ['Serological Pipettes', 'Reusable glass or disposable polystyrene pipettes aspirate and dispense milliliter volumes using the blow-out method.']
     ]
   },
   {
-    id: 'glassware', title: 'Glassware', image: '../assets/glassware.jpg',
+    id: 'glassware', title: 'Glassware', image: '../assets/glassware.jpg', visible: false,
     subtitle: 'Precision glassware for measurement, preparation, transfer, heating, and routine laboratory work.',
     products: [
       ['Culture Tubes', 'Available with graduations, caps, or a permanent marking area for easy identification.'],
@@ -82,7 +87,7 @@ const categoryPages = [
     ]
   },
   {
-    id: 'crucibles-metal-consumables', title: 'Crucibles & Metal Consumables', image: '../assets/crucibles-metal-consumables.jpg',
+    id: 'crucibles-metal-consumables', title: 'Crucibles & Metal Consumables', image: '../assets/crucibles-metal-consumables.jpg', visible: false,
     subtitle: 'Durable tools and consumables for high-temperature work, sample handling, and material analysis.',
     products: [
       ['Crucibles', 'High-quality containers made from porcelain, glass, metal, and other materials, in tall or low forms with or without lids.'],
@@ -123,6 +128,20 @@ const categoryPages = [
       ['Conductivity Electrodes', 'Electrodes for a range of environmental, industrial, and pharmaceutical applications.'],
       ['Dissolved Oxygen Electrodes', 'Measure dissolved oxygen in river water or determine biochemical oxygen demand (BOD) in wastewater samples.'],
       ['ORP Electrodes', 'Used in water treatment, food production, and pharmaceutical applications to monitor oxidation-reduction reactions.']
+    ]
+  },
+  {
+    id: 'laboratory-instruments', title: 'Laboratory Instruments', image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=900&q=82',
+    subtitle: 'A broad range of laboratory instruments for accurate liquid handling, mixing, heating, centrifugation, vacuum applications, weighing, and sterilization.',
+    products: [
+      ['Liquid Handling Series', 'Instruments for precise liquid transfer and dispensing across laboratory workflows.'],
+      ['Stirring Series', 'Stirring instruments for consistent mixing in laboratory applications.'],
+      ['Heating and Temperature Control Series', 'Equipment for controlled heating and temperature maintenance.'],
+      ['Centrifuge Series', 'Centrifuges for sample separation and preparation.'],
+      ['Vacuum Pump Series', 'Vacuum pumps for laboratory filtration and other vacuum applications.'],
+      ['Mixing and Shaking Series', 'Mixing and shaking equipment for sample preparation and incubation workflows.'],
+      ['Precision Balance Series', 'Precision balances for accurate laboratory weighing.'],
+      ['Autoclave Series', 'Autoclaves for laboratory sterilization workflows.']
     ]
   }
 ];

@@ -1,6 +1,6 @@
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const productId = new URLSearchParams(location.search).get('id');
-const product = productCatalog.find(item => item.id === productId);
+const product = importedProductDetails.find(item => item.id === productId) || productCatalog.find(item => item.id === productId);
 const root = document.querySelector('#product-detail');
 const specificationMarkup = product?.specGroups
   ? product.specGroups.map(group => `<section class="spec-group"><h3>${escapeHTML(group.title)}</h3><div class="spec-table-wrap"><table class="spec-table spec-group-table${group.headers.length <= 2 ? ' spec-group-table-compact' : ''}"><thead><tr>${group.headers.map(header => `<th scope="col">${escapeHTML(header)}</th>`).join('')}</tr></thead><tbody>${group.rows.map(row => `<tr>${row.map(value => `<td>${escapeHTML(value)}</td>`).join('')}</tr>`).join('')}</tbody>${group.footer?.length ? `<tfoot>${group.footer.map(note => `<tr><td colspan="${group.headers.length}">${escapeHTML(note)}</td></tr>`).join('')}</tfoot>` : ''}</table></div></section>`).join('')
@@ -8,13 +8,18 @@ const specificationMarkup = product?.specGroups
 const detailImageMarkup = product?.gallery?.length
   ? `<div class="detail-image-wrap detail-image-gallery">${product.gallery.map((image, index) => `<div class="detail-image-item"><img src="${escapeHTML(image)}" alt="${escapeHTML(product.name)} image ${index + 1}" /></div>`).join('')}</div>`
   : product ? `<div class="detail-image-wrap"><div class="detail-image-item"><img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" /></div></div>` : '';
+const importedInformationMarkup = product?.categories
+  ? `<h2 class="spec-title">Product Information</h2><table class="spec-table spec-summary-table"><tbody><tr><th scope="row">Product Category</th><td>${escapeHTML(product.categories.join('; '))}</td></tr><tr><th scope="row">Products &amp; Applications</th><td>${escapeHTML(product.applications.join('; '))}</td></tr></tbody></table>`
+  : '';
+const specificationTitle = product?.specGroups ? '' : '<h2 class="spec-title">Product Specifications</h2>';
 
 if (!product) {
   document.title = 'Product Not Found | INSIGHTPLUS SCIENCE';
   root.innerHTML = `<section class="detail-not-found"><p class="eyebrow">PRODUCT CATALOG</p><h1>We couldn’t find that product.</h1><p>Browse the product catalog to explore available laboratory solutions.</p><a class="button button-primary" href="products.html">Browse Products <span>→</span></a></section>`;
 } else {
   document.title = `${product.name} | INSIGHTPLUS SCIENCE`;
-  root.innerHTML = `<div class="detail-crumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>${escapeHTML(product.name)}</div><section class="product-detail-layout">${detailImageMarkup}<div class="detail-copy"><p class="detail-category">${escapeHTML(product.category)}</p><h1>${escapeHTML(product.name)}</h1><p class="detail-intro">${escapeHTML(product.description)}</p><h2 class="spec-title">Product Specifications</h2>${specificationMarkup}<a class="button button-primary detail-quote" href="contacts.html">Get a Quote <span>→</span></a><p class="detail-note">Product configuration and specifications can be discussed with our team to suit your project requirements.</p></div></section>`;
+  const categoryLabel = Array.isArray(product.categories) ? '' : `<p class="detail-category">${escapeHTML(product.category)}</p>`;
+  root.innerHTML = `<div class="detail-crumb"><a href="index.html">Home</a><span>›</span><a href="products.html">Products</a><span>›</span>${escapeHTML(product.name)}</div><section class="product-detail-layout">${detailImageMarkup}<div class="detail-copy">${categoryLabel}<h1>${escapeHTML(product.name)}</h1><p class="detail-intro">${escapeHTML(product.description)}</p>${importedInformationMarkup}${specificationTitle}${specificationMarkup}<a class="button button-primary detail-quote" href="contacts.html">Get a Quote <span>→</span></a><p class="detail-note">Product configuration and specifications can be discussed with our team to suit your project requirements.</p></div></section>`;
   root.querySelectorAll('.detail-image-item').forEach(item => {
     item.addEventListener('mousemove', event => {
       const bounds = item.getBoundingClientRect();

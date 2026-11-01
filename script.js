@@ -26,12 +26,11 @@ const media = {
 // Homepage category cards are curated separately from the product catalog.
 const products = [
   {name:'General Plasticware',shortDescription:'Everyday essentials including centrifuge tubes, carboys, bottles, funnels, containers, and bulk laboratory plasticware.',image:'assets/general-plasticware.png',href:'Products/general-plasticware.html'},
-  {name:'Glassware',shortDescription:'A broad selection of beakers, flasks, bottles, pipettes, vials, and laboratory tubes, designed for precision and durability.',image:'assets/glassware.jpg',href:'Products/glassware.html'},
   {name:'Anatomy, Pathology & Clinical Supplies',shortDescription:'Specialized products for diagnostic, pathology, and clinical laboratory environments.',image:'assets/histology-pathology-labware.png',href:'Products/anatomy-pathology-clinical-supplies.html'},
   {name:'Filtration Consumables',shortDescription:'Membrane filters, syringe filters, filter holders, vacuum filtration units, and accessories for sterile filtration and analytical workflows.',image:'assets/filtration-consumables.jpg',href:'Products/filtration-consumables.html'},
-  {name:'Crucibles & Metal Consumables',shortDescription:'High-temperature laboratory tools and consumables for materials testing and analytical procedures.',image:'assets/crucibles-metal-consumables.jpg',href:'Products/crucibles-metal-consumables.html'},
   {name:'Liquid Handling Consumables',shortDescription:'Pipettes, pipette tips, bottle-top dispensers, burettes, and syringes for accurate, reproducible sample handling.',image:'assets/liquid-handling-consumables.jpg',href:'Products/liquid-handling-consumables.html'},
-  {name:'Electrochemistry Supplies',shortDescription:'Meters, probes, laboratory equipment, and consumables for measuring key chemical parameters.',image:'assets/electrochemistry-supplies.jpg',href:'Products/electrochemistry-supplies.html'}
+  {name:'Electrochemistry Supplies',shortDescription:'Meters, probes, laboratory equipment, and consumables for measuring key chemical parameters.',image:'assets/electrochemistry-supplies.jpg',href:'Products/electrochemistry-supplies.html'},
+  {name:'Laboratory Instruments',shortDescription:'Instruments for liquid handling, stirring, heating, centrifugation, vacuum, mixing, weighing, and sterilization.',image:media.instruments,href:'Products/laboratory-instruments.html'}
 ];
 const industries = [
   ['Research Laboratories','Accelerating Scientific Discovery',media.research,'⚗'],['Universities','Supporting Education and Innovation',media.university,'⌂'],['Pharmaceutical Laboratories','Ensuring a Safer and Healthier World',media.pharma,'◉'],['Medical Testing Laboratories','Reliable Testing for Better Care',media.medical,'▤'],['Industrial R&D Centers','Empowering Innovation and Growth',media.industrial,'▧']
